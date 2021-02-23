@@ -2,6 +2,7 @@
 from gpiozero import LED, Button
 from picamera import PiCamera
 from datetime import datetime
+from time import sleep
 
 camera = PiCamera()
 led_yellow = LED(12)
@@ -24,6 +25,7 @@ while loopControl:
         camera.annotate_text = now
         camera.capture('/home/pi/Desktop/MyPictures<3/' + now + '.jpg')
         led_yellow.on()
+	sleep(0.2)
         led_yellow.off()
 
 #When the program stops, the blue light turns off
